@@ -21,12 +21,12 @@ BINDIR?=$(PREFIX)/bin
 
 #FEATURES+=-DWANT_V6
 
-#FEATURES+=-DWANT_ACCESSLIST_BLACK
+FEATURES+=-DWANT_ACCESSLIST_BLACK
 #FEATURES+=-DWANT_ACCESSLIST_WHITE
 
 #FEATURES+=-DWANT_SYNC_LIVE
 #FEATURES+=-DWANT_IP_FROM_QUERY_STRING
-#FEATURES+=-DWANT_COMPRESSION_GZIP
+FEATURES+=-DWANT_COMPRESSION_GZIP
 #FEATURES+=-DWANT_COMPRESSION_GZIP_ALWAYS
 #FEATURES+=-DWANT_LOG_NETWORKS
 #FEATURES+=-DWANT_RESTRICT_STATS
@@ -44,8 +44,8 @@ FEATURES+=-DWANT_FULLSCRAPE
 OPTS_debug=-D_DEBUG -g -ggdb # -pg -fprofile-arcs -ftest-coverage
 OPTS_production=-O3
 
-CFLAGS+=-I$(LIBOWFAT_HEADERS) -Wall -pipe -Wextra #-ansi -pedantic
-LDFLAGS+=-L$(LIBOWFAT_LIBRARY) -lowfat -pthread -lpthread -lz
+CFLAGS+=-I$(LIBOWFAT_HEADERS) -Wall -pipe -Wextra -fPIC #-ansi -pedantic
+LDFLAGS+=-L$(LIBOWFAT_LIBRARY) -lowfat -pthread -lpthread -lz -fPIC
 
 BINARY =opentracker
 HEADERS=trackerlogic.h scan_urlencoded_query.h ot_mutex.h ot_stats.h ot_vector.h ot_clean.h ot_udp.h ot_iovec.h ot_fullscrape.h ot_accesslist.h ot_http.h ot_livesync.h ot_rijndael.h
